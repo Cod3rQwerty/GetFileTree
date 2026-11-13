@@ -6,8 +6,20 @@ A simple CLI tool to get a formatted file tree of a provided directory, with opt
 irm https://raw.githubusercontent.com/Cod3rQwerty/GetFileTree/main/setup.ps1 | iex
 ```
 ## Usage
-Once installed, simply run ```FileTree``` in the desired directory, or provide the directory: `FileTree <directory>`
-To run with a different indentation level, run `FileTree -indent <indent number>`
+Once installed, simply run
+```powershell
+FileTree
+```
+ in the desired directory, or provide the directory:
+```powershell
+ FileTree <directory>
+```
+
+### Indentation Levels
+To run with a different indentation level, run:
+```powershell
+FileTree -indent <indent number>
+```
 
 ### Excluding Directories
 Sometimes, for example with .git or other such directories, you may want to exclude them from the file tree.
