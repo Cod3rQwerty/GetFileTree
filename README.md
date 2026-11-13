@@ -2,9 +2,11 @@
 A simple CLI tool to get a formatted file tree of a provided directory, with options for directory exclusion and indentation
 
 ## Installation
+Run the command:
 ```
 irm https://raw.githubusercontent.com/Cod3rQwerty/GetFileTree/main/install.ps1 | iex
 ```
+In powershell
 ## Usage
 Once installed, simply run
 ```powershell
