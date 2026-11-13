@@ -3,7 +3,10 @@ function FileTree {
     param (
         [Parameter(Position = 0)]
         [string] $dir = (Get-Location),
-        [int] $indent = 4
+        [int] $indent = 4,
+
+        [Alias("e")]
+        [string[]] $exclude
     )
 
     function Write-FileNames {
@@ -22,7 +25,8 @@ function FileTree {
         param (
             [string] $targetDir,
             [int] $current_indent,
-            [int] $indent_to_add
+            [int] $indent_to_add,
+            [string[]] $exclude
         )
         $curr_dir_name = Split-Path -Path $targetDir -Leaf
         Write-Output (((" " * $current_indent) + $curr_dir_name) + "/") 
@@ -30,9 +34,13 @@ function FileTree {
 
         $subdirs = Get-ChildItem -Path $targetDir -Directory -ErrorAction SilentlyContinue
         foreach ($subdir in $subdirs) {
-            Get-NextLevel $subdir.FullName ($current_indent + $indent_to_add) $indent_to_add
+            if ($subdir.Name -in $exclude) {
+                continue
+            }
+
+            Get-NextLevel $subdir.FullName ($current_indent + $indent_to_add) $indent_to_add $exclude
         }
     }
 
-    Get-NextLevel $dir 0 $indent
+    Get-NextLevel $dir 0 $indent $exclude
 }
