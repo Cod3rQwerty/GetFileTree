@@ -5,3 +5,18 @@ A simple CLI tool to get a formatted file tree of a provided directory, with opt
 ```
 irm https://raw.githubusercontent.com/Cod3rQwerty/GetFileTree/main/setup.ps1 | iex
 ```
+## Usage
+Once installed, simply run `FileTree` in the desired directory, or provide the directory: `FileTree <directory>`
+To run with a different indentation level, run `FileTree -indent <indent number>`
+
+### Excluding Directories
+Sometimes, for example with .git or other such directories, you may want to exclude them from the file tree.
+To do this, simply run:
+```powershell
+FileTree -e "directory_name"
+```
+For example, to get a file tree of a React codebase, you could run:
+```powershell
+FileTree -e "node_modules", ".git"
+```
+This excludes both the `node_modules` directory and `.git` directory.
