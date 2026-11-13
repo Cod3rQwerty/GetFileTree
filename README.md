@@ -3,5 +3,5 @@ A simple CLI tool to get a formatted file tree of a provided directory, with opt
 
 ## Installation
 ```
-irm https://raw.githubusercontent.com/Cod3rQwerty/GetFileTree/main/GetFileTree.ps1 | iex
+irm https://raw.githubusercontent.com/Cod3rQwerty/GetFileTree/main/setup.ps1 | iex
 ```
